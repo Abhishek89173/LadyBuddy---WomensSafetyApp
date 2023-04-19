@@ -36,3 +36,38 @@ public class ChoosenActivity extends AppCompatActivity {
             final AlertDialog alertDialog = alert.create();
             alertDialog.setCanceledOnTouchOutside(false);
             btn_okay.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    alertDialog.dismiss();
+                }
+            });
+            alertDialog.show();
+        }
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate( savedInstanceState );
+        setContentView( R.layout.activity_choosen );
+
+        instruction = findViewById( R.id.inst );
+        testing = findViewById(R.id.mag);
+
+        instruction.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity( new Intent( getApplicationContext(), MagnoInst.class ) );
+            }
+        } );
+
+        testing.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity( new Intent( getApplicationContext(), Magnetometer.class ) );
+            }
+        } );
+
+
+    }
+}
+            }
