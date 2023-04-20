@@ -103,7 +103,7 @@ public class SmsActivity extends AppCompatActivity {
                 String phone4 = txt_pnumber4.getText ().toString ();
                 String msg = txt_msg.getText ().toString ();
 
-               
+
                 SharedPreferences shrd = getSharedPreferences ("demo", MODE_PRIVATE);
                 SharedPreferences.Editor editor = shrd.edit ();
                 editor.putString ("phone1", phone1);
