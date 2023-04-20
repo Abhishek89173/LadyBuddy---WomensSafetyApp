@@ -76,17 +76,7 @@ public class CurrentLocation extends AppCompatActivity {
                 // Permission granted.
                 getLastLocation ();
             } else {
-                // Permission denied.
-
-                // Notify the user via a SnackBar that they have rejected a core permission for the
-                // app, which makes the Activity useless. In a real app, core permissions would
-                // typically be best requested during a welcome-screen flow.
-
-                // Additionally, it is important to remember that a permission might have been
-                // rejected without asking the user for permission (device policy or "Never ask
-                // again" prompts). Therefore, a user interface affordance is typically implemented
-                // when permissions are denied. Otherwise, your app could appear unresponsive to
-                // touches or interactions which have required permissions.
+               
                 showSnackbar (R.string.textwarn, R.string.settings,
                         new View.OnClickListener () {
                             @Override
@@ -131,8 +121,7 @@ public class CurrentLocation extends AppCompatActivity {
                 ActivityCompat.shouldShowRequestPermissionRationale (this,
                         Manifest.permission.ACCESS_FINE_LOCATION);
 
-        // Provide an additional rationale to the user. This would happen if the user denied the
-        // request previously, but didn't check the "Don't ask again" checkbox.
+       
         if (shouldProvideRationale) {
             Log.i (TAG, "Displaying permission rationale to provide additional context.");
 
@@ -147,22 +136,14 @@ public class CurrentLocation extends AppCompatActivity {
 
         } else {
             Log.i (TAG, "Requesting permission");
-            // Request permission. It's possible this can be auto answered if device policy
-            // sets the permission in a given state or the user denied the permission
-            // previously and checked "Never ask again".
+            
             startLocationPermissionRequest ();
         }
     }
 
     private void getLastLocation() {
         if (ActivityCompat.checkSelfPermission (this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission (this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
+           
             return;
         }
         mFusedLocationClient.getLastLocation ()
